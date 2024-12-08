@@ -1,6 +1,7 @@
 import './globals.css';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Space Math Adventure',
   description: 'A fun space-themed math learning game',
 };
