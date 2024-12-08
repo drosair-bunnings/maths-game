@@ -31,39 +31,3 @@ jobs:
         name: build-output
         path: .next/
         retention-days: 7
-        
-    # Optional: Add static export for iOS/macOS WebView
-    - name: Static HTML Export
-      run: npx next export
-      
-    - name: Upload static export
-      uses: actions/upload-artifact@v3
-      with:
-        name: static-export
-        path: out/
-        retention-days: 7
-
-  # For mobile apps, you might want to add steps to:
-  # 1. Build iOS app using Xcode
-  # 2. Sign the app
-  # 3. Deploy to TestFlight
-  # Example:
-  #
-  # ios-build:
-  #   needs: build
-  #   runs-on: macos-latest
-  #   steps:
-  #   - uses: actions/checkout@v4
-  #   - name: Download web build
-  #     uses: actions/download-artifact@v3
-  #     with:
-  #       name: static-export
-  #       path: ios/WebView/static
-  #   - name: Set up Xcode
-  #     uses: maxim-lobanov/setup-xcode@v1
-  #     with:
-  #       xcode-version: '15.0'
-  #   - name: Build iOS app
-  #     run: |
-  #       cd ios
-  #       xcodebuild -scheme MathGame archive -archivePath MathGame.xcarchive
